@@ -72,3 +72,16 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 <br />
 
 [![Brought to you by Thinkster](https://raw.githubusercontent.com/gothinkster/realworld/master/media/end.png)](https://thinkster.io)
+
+**Docker Build:**
+
+It is possible to use docker to build and run this frontend. Use the following to build the container.
+```
+ docker build -t frontend .
+```
+It is a multi-stage build so only the necessary files and an nginx web server are provided in the final container.
+To run it use this:
+```
+ docker run -p 80:80 -e "BACKEND_REST_API=conduit.productionready.io/api" frontend
+```
+It exposes the port 80 to access the running web server and sets the environment variable BACKEND_REST_API. This variable is used to set the location of the backend. For testing "conduit.productionready.io/api" is used. 
