@@ -7,5 +7,10 @@ RUN npm run build
 
 FROM nginx:1.13.12-alpine
 COPY --from=builder /app/build /usr/share/nginx/html
-ENTRYPOINT ["nginx","-g","daemon off;"]
+COPY --from=builder /app/nginx.conf /etc/nginx/
+COPY --from=builder /app/docker-entrypoint.sh /
+#different file permission on unix and windows
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 80
