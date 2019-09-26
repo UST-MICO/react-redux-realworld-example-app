@@ -1,7 +1,7 @@
 FROM node:8.15.0-alpine as builder
 WORKDIR /app
 COPY /package*.json /app/
-RUN npm install
+RUN npm install --no-audit
 COPY . /app
 RUN npm run build
 
