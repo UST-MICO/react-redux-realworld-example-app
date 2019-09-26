@@ -82,6 +82,6 @@ It is possible to use docker to build and run this frontend. Use the following t
 It is a multi-stage build so only the necessary files and an nginx web server are provided in the final container.
 To run it use this:
 ```
- docker run -p 80:80 -e "BACKEND_REST_API=conduit.productionready.io/api" frontend
+ docker run -p 80:80 -e "BACKEND_REST_API=demo.productionready.io/api" frontend
 ```
-It exposes the port 80 to access the running web server and sets the environment variable `BACKEND_REST_API`. This variable is used to set the location of the backend. For testing "conduit.productionready.io/api" is used. 
+It exposes the port 80 to access the running web server and sets the environment variable `BACKEND_REST_API`. This variable is used to set the location of the backend. For testing "demo.productionready.io/api" is used. 
