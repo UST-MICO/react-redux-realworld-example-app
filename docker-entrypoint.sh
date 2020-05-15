@@ -10,7 +10,8 @@ fi
 
 echo "Nameserver is:" $NAMESERVER
 
-envsubst '$NAMESERVER ${BACKEND_REST_API}' < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf
+envsubst '$NAMESERVER ${BACKEND_REST_API}' < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf.new
+mv /etc/nginx/nginx.conf.new /etc/nginx/nginx.conf
 echo "done replacing"
 
 cat /etc/nginx/nginx.conf
